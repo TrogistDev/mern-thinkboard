@@ -8,8 +8,7 @@ import path from "path"
 dotenv.config();
 const app = express();
 const __dirname = path.resolve()
-if(process.env.NODE_ENV !== "production"){
-  app.use(cors({
+app.use(cors({
   origin: [
     "http://localhost:5173",
     "https://mern-thinkboard-jet.vercel.app",
@@ -17,7 +16,8 @@ if(process.env.NODE_ENV !== "production"){
 }));
 
 
-}
+
+
 app.use(express.json());
 app.use(rateLimiter);
 /* app.use((req,res,next)=> {
