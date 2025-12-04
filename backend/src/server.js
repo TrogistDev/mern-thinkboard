@@ -9,7 +9,13 @@ dotenv.config();
 const app = express();
 const __dirname = path.resolve()
 if(process.env.NODE_ENV !== "production"){
-  app.use(cors({ origin: ["http://localhost:5173", "https://mern-thinkboard-api.onrender.com/app", "https://mern-thinkboard-74i2.onrender.com/"] }));
+  app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://mern-thinkboard-jet.vercel.app",
+  ]
+}));
+
 
 }
 app.use(express.json());
