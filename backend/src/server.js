@@ -18,7 +18,7 @@ app.use(rateLimiter);
     console.log(`req method is ${req.method} & req URL is ${req.url}`);
     next()
     }) */
-app.use("/", notesRoutes);
+app.use("/api/notes", notesRoutes);
 // middleware
 if(process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")))

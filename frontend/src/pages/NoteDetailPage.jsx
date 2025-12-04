@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { ArrowLeftIcon, LoaderIcon, Trash2Icon } from "lucide-react";
 
 const NoteDetailPage = () => {
-  const [note, setNotes] = useState({ title: "", content: "" });
+  const [note, setNote] = useState({ title: "", content: "" });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -18,7 +18,7 @@ const NoteDetailPage = () => {
     const fetchNote = async () => {
       try {
         const res = await api.get(`/notes/${id}`);
-        setNotes(res.data);
+        setNote(res.data);
         console.log("Dados recebidos da API para edição:", res.data);
       } catch (error) {
         console.log("Error in fetching note", error);
