@@ -18,6 +18,7 @@ app.use(rateLimiter);
     console.log(`req method is ${req.method} & req URL is ${req.url}`);
     next()
     }) */
+connectDB()
 app.use("/", notesRoutes);
 // middleware
 if(process.env.NODE_ENV === "production") {
@@ -26,8 +27,8 @@ app.get("*", (req,res) => {
   res.sendFile(path.join(__dirname,"../frontend","dist", "index.html"))
 })
 }
-connectDB().then(() => {
   app.listen(process.env.PORT, () => {
     console.log("server started on PORT: 5001");
   });
-});
+
+export default app
