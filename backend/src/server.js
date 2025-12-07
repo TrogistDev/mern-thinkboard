@@ -8,6 +8,7 @@ import path from "path"
 dotenv.config();
 const app = express();
 const __dirname = path.resolve()
+const PORT = process.env.PORT || 5001
 app.use(cors({
   origin: [
     "http://localhost:5173",
@@ -33,7 +34,7 @@ app.get("*", (req,res) => {
 })
 }
 connectDB().then(() => {
-  app.listen(process.env.PORT, () => {
-    console.log("server started on PORT: 5001");
+  app.listen(process.env.PORT,'0.0.0.0', () => {
+    console.log(`server started on PORT: ${process.env.PORT}`)
   });
 });
